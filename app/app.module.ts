@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
+
+import { Auth } from './services/auth.service';
 
 @NgModule({
   imports: [
@@ -17,6 +20,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     ProfileComponent
   ],
   bootstrap: [AppComponent],
-  providers: [appRoutingProviders]
+  providers: [
+    appRoutingProviders,
+    AUTH_PROVIDERS,
+    Auth
+  ]
 })
 export class AppModule { }
